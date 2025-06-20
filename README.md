@@ -21,6 +21,7 @@ APIPortal Pro is a revolutionary real estate platform designed exclusively for l
 - ✅ Landing page created (Next.js)
 - ✅ MVP plan defined
 - ✅ Internationalization (ES/EN)
+- ✅ Marketplace risks analysis
 - 🔄 Collecting early access signups
 - 📅 Beta launch planned for Q3 2025
 
@@ -77,7 +78,8 @@ apiportal-pro/
 ├── app/                # Next.js 14 app directory
 │   ├── layout.tsx     # Root layout
 │   ├── page.tsx       # Home page
-│   └── plan/          # MVP plan page
+│   ├── plan/          # MVP plan page
+│   └── risks/         # Marketplace risks page
 ├── components/        # React components
 │   ├── Navbar.tsx     # Navigation with language selector
 │   ├── Hero.tsx       # Hero section
@@ -91,6 +93,8 @@ apiportal-pro/
 ├── lib/               # Utilities
 │   └── translations.ts # Translation strings
 ├── public/            # Static files
+│   ├── MVP.md         # MVP plan document
+│   └── marketplace-risks.md # Risks analysis
 ├── MVP.md            # Detailed MVP plan
 └── package.json      # Project dependencies
 ```
@@ -103,12 +107,13 @@ The app supports both Spanish (default) and English:
 - Automatic browser language detection
 - Persistent language preference (localStorage)
 - All UI texts are translated
-- MVP plan available in Spanish (English coming soon)
+- MVP plan and risks analysis available in Spanish (English coming soon)
 
 ## 📄 Pages
 
 - **/** - Landing page with product information and early access signup
 - **/plan** - Detailed MVP plan (rendered from MVP.md)
+- **/risks** - Marketplace risks and challenges analysis
 
 ## 🎯 MVP Timeline
 
@@ -124,6 +129,17 @@ The app supports both Spanish (default) and English:
 - **Starter**: 29€/month (up to 50 listings)
 - **Professional**: 79€/month (unlimited listings)
 - **Enterprise**: 199€/month (multi-user, white-label)
+
+## 🚨 Marketplace Challenges
+
+We've identified and planned for key marketplace challenges:
+- Chicken-and-egg problem
+- Customer acquisition costs
+- Network effects
+- Platform disintermediation
+- Geographic density requirements
+
+Read our full [risks analysis](/risks) for detailed strategies.
 
 ## 🤝 Contributing
 
