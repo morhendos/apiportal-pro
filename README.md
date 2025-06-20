@@ -17,26 +17,80 @@ APIPortal Pro is a revolutionary real estate platform designed exclusively for l
 
 🟢 **Pre-Launch Phase**
 
-- ✅ Landing page created
+- ✅ Landing page created (Next.js)
 - ✅ MVP plan defined
 - 🔄 Collecting early access signups
 - 📅 Beta launch planned for Q3 2025
 
 ## 🛠 Tech Stack
 
-- **Frontend**: Next.js 14, React, Tailwind CSS
+- **Frontend**: Next.js 14, React, TypeScript, Tailwind CSS
 - **Backend**: Node.js, Express, PostgreSQL
 - **Infrastructure**: AWS/GCP, Redis, S3
 - **Tools**: Mapbox, Prisma ORM, JWT Auth
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/morhendos/apiportal-pro.git
+cd apiportal-pro
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server:
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Available Scripts
+
+- `npm run dev` - Runs the app in development mode
+- `npm run build` - Builds the app for production
+- `npm run start` - Runs the built app in production mode
+- `npm run lint` - Runs the linter
 
 ## 📁 Project Structure
 
 ```
 apiportal-pro/
-├── index.html          # Landing page
-├── MVP.md             # Detailed MVP plan
-└── README.md          # This file
+├── app/                # Next.js 14 app directory
+│   ├── layout.tsx     # Root layout
+│   ├── page.tsx       # Home page
+│   └── plan/          # MVP plan page
+├── components/        # React components
+│   ├── Navbar.tsx     # Navigation component
+│   ├── Hero.tsx       # Hero section
+│   ├── Features.tsx   # Features section
+│   ├── Pricing.tsx    # Pricing section
+│   ├── CTA.tsx        # Call to action
+│   └── Footer.tsx     # Footer component
+├── public/            # Static files
+├── MVP.md            # Detailed MVP plan
+└── package.json      # Project dependencies
 ```
+
+## 📄 Pages
+
+- **/** - Landing page with product information and early access signup
+- **/plan** - Detailed MVP plan (rendered from MVP.md)
 
 ## 🎯 MVP Timeline
 
