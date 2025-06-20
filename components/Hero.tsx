@@ -4,7 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import { useEffect, useState } from 'react'
 
 export default function Hero() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const [mounted, setMounted] = useState(false)
   
   useEffect(() => {

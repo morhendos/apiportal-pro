@@ -4,7 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import { useEffect, useRef, useState } from 'react'
 
 export default function Features() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
   
@@ -41,7 +41,7 @@ export default function Features() {
             </span>
           </h2>
           <p className={`text-xl text-gray-600 max-w-2xl mx-auto ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{animationDelay: '0.1s'}}>
-            {t.language === 'es' 
+            {language === 'es' 
               ? 'Todo lo que necesitas para revolucionar tu negocio inmobiliario' 
               : 'Everything you need to revolutionize your real estate business'
             }
@@ -72,7 +72,7 @@ export default function Features() {
                   
                   {/* Arrow indicator */}
                   <div className="mt-6 flex items-center text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-sm font-medium">{t.language === 'es' ? 'Saber más' : 'Learn more'}</span>
+                    <span className="text-sm font-medium">{language === 'es' ? 'Saber más' : 'Learn more'}</span>
                     <svg className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
