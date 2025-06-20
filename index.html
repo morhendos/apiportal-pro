@@ -3,475 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APIPortal Pro - La plataforma inmobiliaria exclusiva para APIs profesionales</title>
+    <title>APIPortal Pro - Next.js App</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation */
-        nav {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        nav .container {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 20px;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #2c5aa0;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: #555;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #2c5aa0;
-        }
-
-        .cta-button {
-            background: #2c5aa0;
-            color: white;
-            padding: 0.7rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-
-        .cta-button:hover {
-            background: #1e3d6f;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(44,90,160,0.3);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #2c5aa0 0%, #1e3d6f 100%);
-            color: white;
-            padding: 120px 0 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: -20%;
-            width: 40%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="0" y="0" width="10" height="10" fill="rgba(255,255,255,0.03)"/><rect x="20" y="20" width="10" height="10" fill="rgba(255,255,255,0.03)"/><rect x="40" y="40" width="10" height="10" fill="rgba(255,255,255,0.03)"/><rect x="60" y="60" width="10" height="10" fill="rgba(255,255,255,0.03)"/><rect x="80" y="80" width="10" height="10" fill="rgba(255,255,255,0.03)"/></svg>') repeat;
-            transform: rotate(45deg);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 0.8s ease 0.2s both;
-        }
-
-        .hero .cta-button {
-            font-size: 1.1rem;
-            padding: 1rem 2rem;
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c5aa0;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: #e8f0fe;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #f3f4f6;
         }
-
-        .feature-card h3 {
-            color: #2c5aa0;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Pricing Section */
-        .pricing {
-            padding: 80px 0;
-        }
-
-        .pricing-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .pricing-card {
+        .container {
+            text-align: center;
             background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s;
-            position: relative;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 600px;
         }
-
-        .pricing-card.featured {
-            border-color: #2c5aa0;
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(44,90,160,0.2);
-        }
-
-        .pricing-card.featured::before {
-            content: 'MÁS POPULAR';
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #2c5aa0;
-            color: white;
-            padding: 5px 20px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        .price {
-            font-size: 3rem;
+        h1 {
             color: #2c5aa0;
-            margin: 1rem 0;
-        }
-
-        .price span {
-            font-size: 1rem;
-            color: #666;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #2c5aa0 0%, #1e3d6f 100%);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
             margin-bottom: 1rem;
         }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+        code {
+            background: #f3f4f6;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
         }
-
-        /* Form */
-        .early-access-form {
-            display: flex;
-            gap: 1rem;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .early-access-form input {
-            flex: 1;
-            padding: 1rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .early-access-form button {
-            background: white;
-            color: #2c5aa0;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .early-access-form button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255,255,255,0.3);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .early-access-form {
-                flex-direction: column;
-            }
-            
-            .pricing-card.featured {
-                transform: scale(1);
-            }
+        .instructions {
+            margin: 2rem 0;
+            text-align: left;
+            background: #f9fafb;
+            padding: 1.5rem;
+            border-radius: 8px;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <a href="#" class="logo">APIPortal Pro</a>
-            <div class="nav-links">
-                <a href="#features">Características</a>
-                <a href="#pricing">Precios</a>
-                <a href="#contact">Contacto</a>
-                <a href="#early-access" class="cta-button">Acceso Anticipado</a>
-            </div>
+    <div class="container">
+        <h1>🚀 APIPortal Pro - Next.js App</h1>
+        <p>This project has been upgraded to Next.js!</p>
+        
+        <div class="instructions">
+            <h3>To run the application:</h3>
+            <ol>
+                <li>Install dependencies: <code>npm install</code></li>
+                <li>Run development server: <code>npm run dev</code></li>
+                <li>Open <code>http://localhost:3000</code></li>
+            </ol>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Tu Portal Inmobiliario Profesional</h1>
-                <p>Exclusivo para Agentes de la Propiedad Inmobiliaria colegiados.<br>
-                Sin intermediarios. Sin comisiones abusivas. Solo profesionales.</p>
-                <a href="#early-access" class="cta-button">Únete a la Lista de Espera</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <h2 class="section-title">¿Por qué APIPortal Pro?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">💰</div>
-                    <h3>Ahorra hasta un 70%</h3>
-                    <p>Reduce drásticamente tus costes de publicación comparado con los portales tradicionales. Invierte en crecer tu negocio, no en anuncios.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏆</div>
-                    <h3>Solo Profesionales</h3>
-                    <p>Sin competencia de particulares. Un entorno exclusivo donde tu profesionalidad marca la diferencia.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Herramientas Avanzadas</h3>
-                    <p>Analytics en tiempo real, gestión de leads, CRM integrado y todas las herramientas que necesitas para cerrar más ventas.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🤝</div>
-                    <h3>Red Profesional</h3>
-                    <p>Conecta con otros APIs, comparte propiedades en exclusiva y colabora para ofrecer el mejor servicio a tus clientes.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3>Sin Límites</h3>
-                    <p>Publica todas las propiedades que quieras. Sin restricciones artificiales. Sin costes ocultos.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>100% Verificado</h3>
-                    <p>Todos los usuarios son APIs colegiados verificados. Genera confianza instantánea con tus clientes.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <h2 class="section-title">Planes Transparentes, Sin Sorpresas</h2>
-            <div class="pricing-cards">
-                <div class="pricing-card">
-                    <h3>Starter</h3>
-                    <div class="price">29€<span>/mes</span></div>
-                    <ul style="list-style: none; padding: 0; margin: 2rem 0;">
-                        <li>✓ Hasta 50 propiedades</li>
-                        <li>✓ Analytics básico</li>
-                        <li>✓ Soporte por email</li>
-                        <li>✓ Perfil profesional</li>
-                    </ul>
-                    <a href="#early-access" class="cta-button">Empezar</a>
-                </div>
-                <div class="pricing-card featured">
-                    <h3>Professional</h3>
-                    <div class="price">79€<span>/mes</span></div>
-                    <ul style="list-style: none; padding: 0; margin: 2rem 0;">
-                        <li>✓ Propiedades ilimitadas</li>
-                        <li>✓ Analytics avanzado</li>
-                        <li>✓ CRM integrado</li>
-                        <li>✓ Soporte prioritario</li>
-                        <li>✓ API access</li>
-                    </ul>
-                    <a href="#early-access" class="cta-button">Empezar</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>Enterprise</h3>
-                    <div class="price">199€<span>/mes</span></div>
-                    <ul style="list-style: none; padding: 0; margin: 2rem 0;">
-                        <li>✓ Todo en Professional</li>
-                        <li>✓ Multi-usuario</li>
-                        <li>✓ Marca blanca</li>
-                        <li>✓ Account manager</li>
-                        <li>✓ Formación incluida</li>
-                    </ul>
-                    <a href="#early-access" class="cta-button">Contactar</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section" id="early-access">
-        <div class="container">
-            <h2>Sé de los Primeros</h2>
-            <p>Únete a más de 500 APIs que ya están en nuestra lista de espera.<br>
-            Los primeros 100 usuarios tendrán 6 meses gratis.</p>
-            <form class="early-access-form" onsubmit="handleSubmit(event)">
-                <input type="email" placeholder="tu@email.com" required>
-                <button type="submit">Apuntarme</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer style="background: #1e3d6f; color: white; padding: 2rem 0; text-align: center;">
-        <div class="container">
-            <p>&copy; 2025 APIPortal Pro. Creado por y para APIs profesionales.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Form submission
-        function handleSubmit(e) {
-            e.preventDefault();
-            alert('¡Gracias por tu interés! Te contactaremos pronto con más información.');
-            e.target.reset();
-        }
-
-        // Scroll effect on nav
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
-            } else {
-                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-            }
-        });
-    </script>
+        
+        <p>See README.md for full instructions.</p>
+    </div>
 </body>
 </html>
