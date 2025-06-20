@@ -3,10 +3,13 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useLanguage } from '@/contexts/LanguageContext'
+import LanguageSelector from '@/components/LanguageSelector'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
+  const { t } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,41 +30,43 @@ export default function Navbar() {
             APIPortal Pro
           </Link>
           
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {pathname === '/' ? (
               <>
                 <a href="#features" className="text-gray-600 hover:text-primary transition-colors">
-                  Características
+                  {t.nav.features}
                 </a>
                 <a href="#pricing" className="text-gray-600 hover:text-primary transition-colors">
-                  Precios
+                  {t.nav.pricing}
                 </a>
                 <Link href="/plan" className="text-gray-600 hover:text-primary transition-colors">
-                  Plan MVP
+                  {t.nav.mvpPlan}
                 </Link>
-                <a 
-                  href="#early-access" 
-                  className="bg-primary text-white px-6 py-2 rounded-md hover:bg-primary-dark transition-colors"
-                >
-                  Acceso Anticipado
-                </a>
               </>
             ) : (
               <>
                 <Link href="/" className="text-gray-600 hover:text-primary transition-colors">
-                  Inicio
+                  {t.nav.home}
                 </Link>
                 <Link href="/plan" className="text-gray-600 hover:text-primary transition-colors">
-                  Plan MVP
-                </Link>
-                <Link 
-                  href="/#early-access" 
-                  className="bg-primary text-white px-6 py-2 rounded-md hover:bg-primary-dark transition-colors"
-                >
-                  Acceso Anticipado
+                  {t.nav.mvpPlan}
                 </Link>
               </>
             )}
+            
+            <LanguageSelector />
+            
+            <a 
+              href={pathname === '/' ? '#early-access' : '/#early-access'}
+              className="bg-primary text-white px-6 py-2 rounded-md hover:bg-primary-dark transition-colors"
+            >
+              {t.nav.earlyAccess}
+            </a>
+          </div>
+          
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center gap-4">
+            <LanguageSelector />
           </div>
         </div>
       </div>

@@ -1,4 +1,10 @@
+'use client'
+
+import { useLanguage } from '@/contexts/LanguageContext'
+
 export default function Hero() {
+  const { t } = useLanguage()
+  
   return (
     <section className="relative bg-gradient-to-br from-primary to-primary-dark text-white pt-32 pb-20 overflow-hidden">
       {/* Background pattern */}
@@ -11,19 +17,19 @@ export default function Hero() {
       <div className="container relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in-up">
-            Tu Portal Inmobiliario Profesional
+            {t.hero.title}
           </h1>
           <p className="text-xl md:text-2xl mb-8 opacity-90 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
-            Exclusivo para Agentes de la Propiedad Inmobiliaria colegiados.
+            {t.hero.subtitle}
             <br className="hidden md:block" />
-            Sin intermediarios. Sin comisiones abusivas. Solo profesionales.
+            {t.hero.subtitle2}
           </p>
           <a 
             href="#early-access"
             className="inline-block bg-white text-primary px-8 py-4 rounded-md text-lg font-semibold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 animate-fade-in-up"
             style={{animationDelay: '0.4s'}}
           >
-            Únete a la Lista de Espera
+            {t.hero.cta}
           </a>
         </div>
       </div>

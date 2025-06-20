@@ -1,17 +1,34 @@
-import fs from 'fs'
-import path from 'path'
+'use client'
+
+import { useState, useEffect } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import Link from 'next/link'
-
-export const metadata = {
-  title: 'MVP Plan - APIPortal Pro',
-  description: 'Plan detallado para el desarrollo de APIPortal Pro',
-}
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function PlanPage() {
-  const markdownPath = path.join(process.cwd(), 'MVP.md')
-  const markdownContent = fs.readFileSync(markdownPath, 'utf-8')
+  const { t, language } = useLanguage()
+  const [markdownContent, setMarkdownContent] = useState('')
+
+  useEffect(() => {
+    // In a real app, you might fetch this from an API or have separate MD files
+    // For now, we'll load the Spanish version and show a note for English
+    fetch(language === 'en' ? '/MVP-EN.md' : '/MVP.md')
+      .then(res => res.text())
+      .then(text => setMarkdownContent(text))
+      .catch(() => {
+        // If English version doesn't exist, load Spanish with a note
+        fetch('/MVP.md')
+          .then(res => res.text())
+          .then(text => {
+            if (language === 'en') {
+              setMarkdownContent(`> **Note:** This document is currently available in Spanish only. English translation coming soon.\n\n${text}`)
+            } else {
+              setMarkdownContent(text)
+            }
+          })
+      })
+  }, [language])
 
   return (
     <main className="min-h-screen bg-gray-50 pt-20">
@@ -23,7 +40,7 @@ export default function PlanPage() {
           <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
-          Volver al inicio
+          {t.plan.backToHome}
         </Link>
         
         <article className="prose prose-lg max-w-none bg-white rounded-lg shadow-lg p-8 md:p-12">
