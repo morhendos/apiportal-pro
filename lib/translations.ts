@@ -4,6 +4,7 @@ export const translations = {
       features: 'Características',
       pricing: 'Precios',
       mvpPlan: 'Plan MVP',
+      risks: 'Riesgos y Desafíos',
       earlyAccess: 'Acceso Anticipado',
       home: 'Inicio'
     },
@@ -110,6 +111,7 @@ export const translations = {
       features: 'Features',
       pricing: 'Pricing',
       mvpPlan: 'MVP Plan',
+      risks: 'Risks & Challenges',
       earlyAccess: 'Early Access',
       home: 'Home'
     },

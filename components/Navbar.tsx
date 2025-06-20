@@ -42,6 +42,9 @@ export default function Navbar() {
                 <Link href="/plan" className="text-gray-600 hover:text-primary transition-colors">
                   {t.nav.mvpPlan}
                 </Link>
+                <Link href="/risks" className="text-gray-600 hover:text-primary transition-colors">
+                  {t.nav.risks}
+                </Link>
               </>
             ) : (
               <>
@@ -50,6 +53,9 @@ export default function Navbar() {
                 </Link>
                 <Link href="/plan" className="text-gray-600 hover:text-primary transition-colors">
                   {t.nav.mvpPlan}
+                </Link>
+                <Link href="/risks" className="text-gray-600 hover:text-primary transition-colors">
+                  {t.nav.risks}
                 </Link>
               </>
             )}
