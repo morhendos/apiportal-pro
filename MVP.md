@@ -26,7 +26,7 @@ Create the leading real estate platform exclusively for licensed API (Agente de 
 
 ## 🚀 MVP Features
 
-### Phase 1: Core Platform (Months 1-3)
+### Phase 1: Core Platform
 
 #### Essential Features
 1. **User Registration & Verification**
@@ -51,7 +51,7 @@ Create the leading real estate platform exclusively for licensed API (Agente de 
    - Lead capture forms
    - Email notifications
 
-### Phase 2: Professional Tools (Months 4-5)
+### Phase 2: Professional Tools
 
 1. **Analytics Dashboard**
    - Listing performance metrics
@@ -70,7 +70,7 @@ Create the leading real estate platform exclusively for licensed API (Agente de 
    - Co-listing agreements
    - Referral system
 
-### Phase 3: Market Expansion (Months 5-6)
+### Phase 3: Market Expansion
 
 1. **Mobile Applications**
    - iOS app for APIs
@@ -106,17 +106,6 @@ Create the leading real estate platform exclusively for licensed API (Agente de 
 - **CDN**: CloudFront or Cloudflare
 - **CI/CD**: GitHub Actions
 - **Monitoring**: Sentry + Google Analytics
-
-### Database Schema (Simplified)
-
-```sql
--- Core entities
-users (id, email, api_license, verified, created_at)
-properties (id, user_id, title, price, location, status)
-images (id, property_id, url, order)
-leads (id, property_id, name, email, phone, message)
-messages (id, sender_id, receiver_id, property_id, content)
-```
 
 ## 📈 Go-to-Market Strategy
 
