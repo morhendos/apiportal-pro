@@ -12,6 +12,7 @@ APIPortal Pro is a revolutionary real estate platform designed exclusively for l
 - 📊 **Advanced Analytics** - Track your performance and ROI
 - 🤝 **API Network** - Collaborate with other professionals
 - 🚀 **Unlimited Listings** - No artificial restrictions
+- 🌐 **Bilingual** - Available in Spanish and English
 
 ## 📋 Project Status
 
@@ -19,6 +20,7 @@ APIPortal Pro is a revolutionary real estate platform designed exclusively for l
 
 - ✅ Landing page created (Next.js)
 - ✅ MVP plan defined
+- ✅ Internationalization (ES/EN)
 - 🔄 Collecting early access signups
 - 📅 Beta launch planned for Q3 2025
 
@@ -28,6 +30,7 @@ APIPortal Pro is a revolutionary real estate platform designed exclusively for l
 - **Backend**: Node.js, Express, PostgreSQL
 - **Infrastructure**: AWS/GCP, Redis, S3
 - **Tools**: Mapbox, Prisma ORM, JWT Auth
+- **i18n**: Built-in language support (Spanish/English)
 
 ## 🚀 Getting Started
 
@@ -76,16 +79,31 @@ apiportal-pro/
 │   ├── page.tsx       # Home page
 │   └── plan/          # MVP plan page
 ├── components/        # React components
-│   ├── Navbar.tsx     # Navigation component
+│   ├── Navbar.tsx     # Navigation with language selector
 │   ├── Hero.tsx       # Hero section
 │   ├── Features.tsx   # Features section
 │   ├── Pricing.tsx    # Pricing section
 │   ├── CTA.tsx        # Call to action
-│   └── Footer.tsx     # Footer component
+│   ├── Footer.tsx     # Footer component
+│   └── LanguageSelector.tsx # Language toggle
+├── contexts/          # React contexts
+│   └── LanguageContext.tsx # i18n context
+├── lib/               # Utilities
+│   └── translations.ts # Translation strings
 ├── public/            # Static files
 ├── MVP.md            # Detailed MVP plan
 └── package.json      # Project dependencies
 ```
+
+## 🌐 Internationalization
+
+The app supports both Spanish (default) and English:
+
+- Language selector in the navigation bar
+- Automatic browser language detection
+- Persistent language preference (localStorage)
+- All UI texts are translated
+- MVP plan available in Spanish (English coming soon)
 
 ## 📄 Pages
 
@@ -122,4 +140,4 @@ Copyright © 2025 APIPortal Pro. All rights reserved.
 
 ---
 
-*Built by APIs, for APIs* 🏆
+*Built by APIs, for APIs* 🏆 | *Creado por y para APIs* 🏆
